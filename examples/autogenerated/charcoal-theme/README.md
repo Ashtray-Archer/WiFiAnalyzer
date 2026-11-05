@@ -1,0 +1,5 @@
+# Actual AppCompat resource qualification
+
+The first source fbc6d1c3 passed real SDK lint and the seven-file shared contract, but the new resource test did not compile: non-transitive R exposes AppCompat's colorButtonNormal through androidx.appcompat.R, not the application's R. Ktlint also rejected long/chained expressions. The rejected authored test is retained beside this account; no production theme change, minimum-SDK increase, lint suppression or weakened assertion is used to repair it.
+
+The corrected test uses the actual AppCompat attribute owner and shorter named observations. It still resolves actual resource colors and state lists on API29/34 in night and notnight configurations, checks primary/secondary AA contrast, and requires disabled85. Existing Kotlin/Android test infrastructure is retained. Hosted re-execution is pending at commit creation. Types are native Android Context/TypedValue/resource IDs and observed integer ARGB values; an Idriç-only test could not directly execute this existing Robolectric/AppCompat resource boundary without new bindings.

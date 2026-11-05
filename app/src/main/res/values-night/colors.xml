@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ WiFiAnalyzer
+  ~ Copyright (C) 2015 - 2026 VREM Software Development <VREMSoftwareDevelopment@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
+
+<resources>
+    <!-- grey_500 -->
+    <color name="regular">@color/charcoal_secondary</color>
+    <!-- blue_500 -->
+    <color name="selected">@color/charcoal_text</color>
+    <color name="selected_background">@color/charcoal_selection</color>
+    <!-- grey_500 -->
+    <color name="channel">@color/regular</color>
+    <!-- cyan_500 -->
+    <color name="channel_number">#00BCD4</color>
+    <!-- cyan_700 -->
+    <color name="frequency">@color/charcoal_secondary</color>
+    <!-- blue_grey_500 -->
+    <color name="security">@color/charcoal_secondary</color>
+    <!-- teal_500 -->
+    <color name="distance">@color/charcoal_secondary</color>
+    <!-- red_500 -->
+    <color name="error">@color/charcoal_error</color>
+    <!-- amber_500 -->
+    <color name="warning">@color/charcoal_warning</color>
+    <!-- green_500 -->
+    <color name="success">@color/charcoal_success</color>
+    <!-- background -->
+    <color name="background">@color/charcoal_background</color>
+    <!-- black -->
+    <color name="black">#000000</color>
+    <!-- grey_900 -->
+    <color name="nav_bottom_background">@color/charcoal_surface</color>
+</resources>

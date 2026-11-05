@@ -1,0 +1,5 @@
+# Enum initialization and complete build closure
+
+The actual API29 and34 Robolectric resource tests pass in42008086534 under night and notnight configurations, as do SDK lint, ktlint and license checks. The full existing plain JVM suite exposed a production enum-initializer regression: the added Color.rgb() calls an Android stub before a Robolectric environment exists. A named signed ARGB constant now represents F4 without an Android call or startup work. Existing enum order, saved preferences and graph behavior remain; the existing parameterized DARK-theme expectation now names its actual new style.
+
+The rejected generated ThemeStyle source is retained here. Tests and assertions are not disabled or converted to mocks to hide the failure. CodeQL's independent checkout also needs the same pinned presentation submodule as all other builds; it now initializes that dependency. The scanner, themes, minimum SDK, tool versions and CodeQL analysis remain intact. Current full regression/CodeQL replay is pending at commit creation.

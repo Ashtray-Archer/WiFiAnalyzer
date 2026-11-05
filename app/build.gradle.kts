@@ -78,6 +78,8 @@ android {
         kotlin.directories.add("src/$name/kotlin")
     }
 
+    sourceSets.getByName("main").res.srcDir(rootProject.file(".charcoal/native/presentation/res"))
+
     defaultConfig {
         applicationId = "com.vrem.wifianalyzer"
         minSdk = 24

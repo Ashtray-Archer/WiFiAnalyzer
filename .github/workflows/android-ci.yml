@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          submodules: true
       - name: license header check
         run: ./scripts/check-license-headers.sh
 
@@ -33,6 +35,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          submodules: true
       - name: Common setup
         uses: ./.github/actions/common-setup
       - name: ktlint check
@@ -48,6 +52,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          submodules: true
       - name: Common setup
         uses: ./.github/actions/common-setup
       - name: lint
@@ -63,6 +69,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          submodules: true
       - name: Common setup
         uses: ./.github/actions/common-setup
       - name: unit tests
@@ -79,6 +87,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          submodules: true
       - name: Common setup
         uses: ./.github/actions/common-setup
       - name: coverage
@@ -100,6 +110,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          submodules: true
       - name: Common setup
         uses: ./.github/actions/common-setup
       - name: build apk
@@ -119,6 +131,8 @@ jobs:
         api-level: [31, 33, 35, '37.0']
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
       - uses: ./.github/actions/common-setup
       - name: Enable KVM
         run: |
