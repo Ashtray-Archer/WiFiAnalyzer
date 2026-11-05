@@ -1,0 +1,7 @@
+# Charcoal default
+
+The existing AppCompat/Kotlin/Gradle interface remains. The saved DARK ordinal0 now selects an explicit charcoal theme; LIGHT, SYSTEM and BLACK keep their existing ordinals and behavior. Graph series colors, scanning, navigation, permissions and network data are unchanged. Neutral app surfaces, dialogs, selection and status/navigation bars consume shared palette roles. API27 and29 attributes are version-qualified. The splash uses the shared charcoal background before Activity initialization.
+
+The shared presentation submodule is pinned to android-NDK 38d6899706d855201239d86e1629e2620c0e8821; initialize submodules before the existing build. Gradle reads canonical resources directly from that checkout, avoiding modified vendored copies and preserving their ownership. CI initializes the same submodule; the vendor contract checks all seven resource files. Existing GPL headers remain and new app-owned files include the project's header.
+
+Robolectric resource tests exercise actual AppCompat resource resolution on API29/34 with system light and dark qualifiers, primary/secondary AA contrast and disabled text. Existing preference/ordinal and functional tests remain. Build, lint, test, instrumentation, screenshots and physical C67 acceptance are pending at initial publication. A debug APK has a runner-local signer unless the existing private release key is supplied; it is not a preserved C67 upgrade. No key is borrowed or release published.

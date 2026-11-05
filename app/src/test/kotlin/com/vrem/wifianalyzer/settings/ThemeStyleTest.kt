@@ -31,7 +31,7 @@ class ThemeStyleTest {
 
     @Test
     fun colorGraphText() {
-        assertThat(ThemeStyle.DARK.colorGraphText).isEqualTo(Color.WHITE)
+        assertThat(ThemeStyle.DARK.colorGraphText).isEqualTo(Color.rgb(244, 244, 244))
         assertThat(ThemeStyle.LIGHT.colorGraphText).isEqualTo(Color.BLACK)
         assertThat(ThemeStyle.SYSTEM.colorGraphText).isEqualTo(Color.GRAY)
         assertThat(ThemeStyle.BLACK.colorGraphText).isEqualTo(Color.WHITE)
