@@ -38,7 +38,7 @@ class ThemeStyleParameterizedTest(
         @Parameterized.Parameters(name = "{0}")
         fun data(): Collection<Array<Any>> =
             listOf(
-                arrayOf(ThemeStyle.DARK, R.style.ThemeSystemNoActionBar, AppCompatDelegate.MODE_NIGHT_YES),
+                arrayOf(ThemeStyle.DARK, R.style.ThemeCharcoalNoActionBar, AppCompatDelegate.MODE_NIGHT_YES),
                 arrayOf(ThemeStyle.LIGHT, R.style.ThemeSystemNoActionBar, AppCompatDelegate.MODE_NIGHT_NO),
                 arrayOf(ThemeStyle.SYSTEM, R.style.ThemeSystemNoActionBar, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM),
                 arrayOf(ThemeStyle.BLACK, R.style.ThemeBlackNoActionBar, AppCompatDelegate.MODE_NIGHT_YES),

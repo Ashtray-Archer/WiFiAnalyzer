@@ -24,14 +24,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.vrem.wifianalyzer.R
 
-private val charcoalGraphText = Color.rgb(244, 244, 244)
+// Signed ARGB 0xFFF4F4F4, with no Android call during enum initialization.
+private const val CHARCOAL_GRAPH_TEXT = -0x0B0B0C
 
 enum class ThemeStyle(
     @param:ColorInt val colorGraphText: Int,
     @param:StyleRes private val theme: Int,
     private val nightMode: Int,
 ) {
-    DARK(charcoalGraphText, R.style.ThemeCharcoalNoActionBar, AppCompatDelegate.MODE_NIGHT_YES),
+    DARK(CHARCOAL_GRAPH_TEXT, R.style.ThemeCharcoalNoActionBar, AppCompatDelegate.MODE_NIGHT_YES),
     LIGHT(Color.BLACK, R.style.ThemeSystemNoActionBar, AppCompatDelegate.MODE_NIGHT_NO),
     SYSTEM(Color.GRAY, R.style.ThemeSystemNoActionBar, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM),
     BLACK(Color.WHITE, R.style.ThemeBlackNoActionBar, AppCompatDelegate.MODE_NIGHT_YES),
