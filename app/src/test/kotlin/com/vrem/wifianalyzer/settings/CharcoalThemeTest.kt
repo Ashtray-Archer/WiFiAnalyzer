@@ -45,22 +45,35 @@ class CharcoalThemeTest {
 
     private fun verifyCharcoal() {
         val context = ContextThemeWrapper(RuntimeEnvironment.getApplication(), R.style.ThemeCharcoalNoActionBar)
-        assertThat(color(context, android.R.attr.colorBackground)).isEqualTo(context.getColor(R.color.charcoal_background))
-        assertThat(color(context, R.attr.colorButtonNormal)).isEqualTo(context.getColor(R.color.charcoal_interactive))
-        assertThat(color(context, android.R.attr.textColorPrimary)).isEqualTo(context.getColor(R.color.charcoal_text))
+        requireColor(context, android.R.attr.colorBackground, R.color.charcoal_background)
+        requireColor(context, androidx.appcompat.R.attr.colorButtonNormal, R.color.charcoal_interactive)
+        requireColor(context, android.R.attr.textColorPrimary, R.color.charcoal_text)
         assertThat(context.getColor(R.color.charcoal_background)).isEqualTo(0xFF212121.toInt())
-        listOf(R.color.charcoal_background, R.color.charcoal_surface, R.color.charcoal_interactive).forEach { surface ->
-            assertThat(ColorUtils.calculateContrast(context.getColor(R.color.charcoal_text), context.getColor(surface)))
-                .isGreaterThanOrEqualTo(4.5)
-            assertThat(ColorUtils.calculateContrast(context.getColor(R.color.charcoal_secondary), context.getColor(surface)))
-                .isGreaterThanOrEqualTo(4.5)
+        val primary = context.getColor(R.color.charcoal_text)
+        val secondary = context.getColor(R.color.charcoal_secondary)
+        val surfaces = listOf(R.color.charcoal_background, R.color.charcoal_surface, R.color.charcoal_interactive)
+        surfaces.forEach { surface ->
+            val background = context.getColor(surface)
+            assertThat(ColorUtils.calculateContrast(primary, background)).isGreaterThanOrEqualTo(4.5)
+            assertThat(ColorUtils.calculateContrast(secondary, background)).isGreaterThanOrEqualTo(4.5)
         }
-        val disabled = context.getColorStateList(R.color.charcoal_text_states)
-            .getColorForState(intArrayOf(-android.R.attr.state_enabled), 0)
+        val states = context.getColorStateList(R.color.charcoal_text_states)
+        val disabled = states.getColorForState(intArrayOf(-android.R.attr.state_enabled), 0)
         assertThat(disabled).isEqualTo(context.getColor(R.color.charcoal_disabled))
     }
 
-    private fun color(context: Context, attribute: Int): Int {
+    private fun requireColor(
+        context: Context,
+        attribute: Int,
+        expected: Int,
+    ) {
+        assertThat(color(context, attribute)).isEqualTo(context.getColor(expected))
+    }
+
+    private fun color(
+        context: Context,
+        attribute: Int,
+    ): Int {
         val value = TypedValue()
         assertThat(context.theme.resolveAttribute(attribute, value, true)).isTrue()
         return if (value.resourceId != 0) {
